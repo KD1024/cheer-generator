@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>打call器</title>
+</head>
+<script>
+    function createCallString(str, characterNum) {
+        let cell = '\\' + str + '/';
+        let result = '' + cell;
+        while (result.length <= (characterNum - cell.length)) {
+            result += cell;
+        }
+        navigator.clipboard.writeText(result);
+        return result;
+    }
+
+    function createSpecialCallString(str, symbol, time) {
+        let cell = symbol + str + symbol;
+        let result = '';
+        for (let i = 0; i < time; i++) {
+            result += cell;
+        }
+        navigator.clipboard.writeText(result);
+        return result;
+    }
+
+    function createCustomCallString(str, symbol, characterNum) {
+        let strCharNum = str.length;
+        let symbolCharNum = symbol.length;
+        let repeat = Math.floor((characterNum - strCharNum) / (strCharNum + symbolCharNum));
+        let result = str;
+        for (let i = 0; i < repeat; i++) {
+            result += (symbol + str);
+        }
+        navigator.clipboard.writeText(result);
+        return result;
+    }
+</script>
+<style>
+    body {
+        background-color: #fcf1b1;
+    }
+    
+    h1 {
+        color: #ad4441;
+        text-align: center;
+    }
+
+    h3 {
+        color: #ad4441;
+    }
+    
+    p {
+        color: #ad4441;
+        font-family: verdana;
+        font-size: 16px;
+    }
+
+    .content-panel {
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .row.normal {
+        width: 150px;
+    }
+    .row.custom {
+        width: 400px;
+    }
+    .row.special {
+        width: 500px;
+    }
+
+    .row.normal input{
+        max-width: 60px;
+    }
+    .row.custom input{
+        max-width: 100px;
+    }
+    .row.special input{
+        max-width: 100px;
+    }
+
+    label {
+        display: inline-block;
+        color: #ad4441;
+        width: auto;
+    }
+
+    input {
+        height: 18px;
+    }
+
+
+    .character-num {
+        margin-bottom: 20px;
+    }
+
+    .character-num h3,
+    .character-num input {
+        display:inline
+    }
+
+    .demo {
+        height: 50px;
+    }
+</style>
+
+<body>
+
+<h1>打call器</h1>
+<div class="character-num">
+    <h3>字数限制：</h3>
+    <input type="number" id="characterNum" name="characterNum" value="30">
+</div>
+<div class="content-panel normal">
+    <div class="row normal">
+        <label for="word1">No.01</label>
+        <input type="text" id="word1" name="word1" value="龙宝">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word1').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word2">No.02</label>
+        <input type="text" id="word2" name="word2" value="原创">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word2').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word3">No.03</label>
+        <input type="text" id="word3" name="word3" value="原告">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word3').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word4">No.04</label>
+        <input type="text" id="word4" name="word4" value="天籁">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word4').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word5">No.05</label>
+        <input type="text" id="word5" name="word5" value="">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word5').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word6">No.06</label>
+        <input type="text" id="word6" name="word6" value="牧牧">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word6').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word7">No.07</label>
+        <input type="text" id="word7" name="word7" value="朱宝">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word7').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word8">No.08</label>
+        <input type="text" id="word8" name="word8" value="安晚">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word8').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word9">No.09</label>
+        <input type="text" id="word9" name="word9" value="灵宝">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word9').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row normal">
+        <label for="word10">No.10</label>
+        <input type="text" id="word10" name="word10" value="狐狐">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCallString(document.getElementById('word10').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+</div>
+<div class="content-panel custom">
+    <div class="row custom">
+        <label for="custom1">定制重复1</label>
+        <input type="text" id="custom1" name="custom1" value="\龙宝/\龙宝/\龙宝/">
+        <label for="separator1">隔离符</label>
+        <input type="text" id="separator1" name="separator1" value="　　　　">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCustomCallString(document.getElementById('custom1').value, document.getElementById('separator1').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row custom">
+        <label for="custom1">定制重复2</label>
+        <input type="text" id="custom2" name="custom2" value="">
+        <label for="separator1">隔离符</label>
+        <input type="text" id="separator2" name="separator2" value="">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCustomCallString(document.getElementById('custom2').value, document.getElementById('separator2').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row custom">
+        <label for="custom1">定制重复3</label>
+        <input type="text" id="custom3" name="custom3" value="">
+        <label for="separator1">隔离符</label>
+        <input type="text" id="separator3" name="separator3" value="">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createCustomCallString(document.getElementById('custom3').value, document.getElementById('separator3').value, document.getElementById('characterNum').value)">
+        &#9822;</button>
+    </div>
+</div>
+<div class="content-panel special">
+    <div class="row special">
+        <label for="spe1">特殊1</label>
+        <input type="text" id="spe1" name="spe1" value="阿尾">
+        <label for="symbol1">符号</label>
+        <input type="text" id="symbol1" name="symbol1" value="☀️">
+        <label for="time1">次数</label>
+        <input type="number" id="time1" name="time1" value="5">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createSpecialCallString(document.getElementById('spe1').value, document.getElementById('symbol1').value, document.getElementById('time1').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row special">
+        <label for="spe2">特殊2</label>
+        <input type="text" id="spe2" name="spe2" value="阿尾">
+        <label for="symbol2">符号</label>
+        <input type="text" id="symbol2" name="symbol2" value="🌻">
+        <label for="time2">次数</label>
+        <input type="number" id="time2" name="time2" value="5">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createSpecialCallString(document.getElementById('spe2').value, document.getElementById('symbol2').value, document.getElementById('time2').value)">
+        &#9822;</button>
+    </div>
+
+    <div class="row special">
+        <label for="spe2">特殊3</label>
+        <input type="text" id="spe3" name="spe3" value="灵宝">
+        <label for="symbol2">符号</label>
+        <input type="text" id="symbol3" name="symbol3" value="👻">
+        <label for="time2">次数</label>
+        <input type="number" id="time3" name="time3" value="5">
+        <button type="button"
+            onclick="document.getElementById('example').innerHTML = createSpecialCallString(document.getElementById('spe3').value, document.getElementById('symbol3').value, document.getElementById('time2').value)">
+        &#9822;</button>
+    </div>
+</div>
+<div>
+    <h3>最近复制内容：</h3>
+    <p id="example"></p>
+</div>
+
+</body>
+</html> 
+
